@@ -1,2 +1,2 @@
 # doc_mark_json
-Document generation tool to create Mark Down documents from json.
+Document generation tool to create Mark Down documents from JSON.
