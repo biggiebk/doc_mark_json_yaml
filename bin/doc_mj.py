@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description ='Document generation tool to creat
 
 # Add Arguments
 parser.add_argument('input', metavar='Input', help ='File or directory to process')
-#parser.add_argument('-out', metavar='OutputDir', action='store', help='Directory for output')
+parser.add_argument('out', metavar='OutputDir', action='store', help='Directory for output')
 
 # Parse the arguments
 args = parser.parse_args()

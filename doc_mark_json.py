@@ -26,7 +26,6 @@ class DocMarkJson():
 		"""
 			Builds the mark down files
 		"""
-		users = [ "Frank", "Steve", "Alice", "Bruce" ]
 		for directory, files in self.directories.items(): # For each directory
 			for filename in files: ## For each file in the directory
 				with open(F"{directory}/{filename}", 'r', encoding='utf-8') as file:
@@ -34,7 +33,10 @@ class DocMarkJson():
 				file_json = json.loads(file_data) # Readin the file
 				env = Environment( loader=PackageLoader("doc_mark_json"), autoescape=select_autoescape())
 				template = env.get_template("default.jinja")
-				print(template.render(document=file_json['document']))
+				with open(F"{self.parameters['out']}/{os.path.splitext(filename)[0]}.md", "w",
+				encoding='utf-8')as markdown_file:
+					markdown_file.write(template.render(document=file_json['document']))
+				markdown_file.close()
 
 	@beartype
 	def discover(self, parameters: dict[str, Union[str, int, bool]]) -> None:
@@ -74,6 +76,8 @@ class DocMarkJson():
 		# Set the out directory to input if not specified
 		if self.parameters['out'] is None:
 			self.parameters['out'] = self.parameters['input']
+		else:
+			self.parameters['out'] = os.path.abspath(parameters['out'])
 
 	@beartype
 	def lint(self) -> list:
@@ -86,7 +90,7 @@ class DocMarkJson():
 				with open(F"{directory}/{filename}", 'r', encoding='utf-8') as file:
 					file_data = file.read()
 				try:
-					file_json = json.loads(file_data) # Can we read the file
+					json.loads(file_data) # Can we read the file
 				except json.JSONDecodeError as xcpt:
 					errors.append(f"Failed to decode: {directory}/{filename}\n" +
 						f"\t{xcpt.msg} Line: {xcpt.lineno} Col: {xcpt.colno}")
