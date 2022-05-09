@@ -1,5 +1,5 @@
 """
-	Description: Module used for parsing JSON files
+	Description: Module used for parsing JSON files and converting to markdown
 """
 
 import os
