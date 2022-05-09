@@ -51,4 +51,4 @@ wiki.commit('First wiki push test')
 wiki.push()
 
 # Clean the local files
-#wiki.remove()
+wiki.remove()
