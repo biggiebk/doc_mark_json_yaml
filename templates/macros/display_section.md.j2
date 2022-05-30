@@ -1,0 +1,26 @@
+{% from 'macros/advanced.md.j2' import advanced -%}
+{% macro process_txts(txts) -%}
+{% for txt in txts -%}
+{% if txt is mapping -%}
+{{ advanced(txt) -}}
+{% else -%}
+{{ txt }}
+
+{% endif -%}
+{% endfor -%}
+{% endmacro -%}
+{% macro display_section(heading_level, sections) -%}
+{% for section in sections -%}
+{{ heading_level }} {{ section['title'] }}
+
+{% if section['pre'] is defined -%}
+{{ process_txts(section['pre']) -}}
+{% endif -%}
+{% if section['sections'] is defined -%}
+{{ display_section(heading_level + '#', section['sections']) -}}
+{% endif -%}
+{% if section['post'] is defined -%}
+{{ process_txts(section['post']) -}}
+{% endif -%}
+{% endfor -%}
+{% endmacro -%}

@@ -1,0 +1,16 @@
+{% macro toc_subs(indent, sections) -%}
+{% for section in sections -%}
+{{indent}}* [{{ section['title'] }}](#{{ section['title'] | replace(' ', '-')| replace('--', '-') | replace('.', '') }})
+{% if section['sections'] is defined -%}
+{{ toc_subs(indent + '  ', section['sections']) }}
+{% endif -%}
+{% endfor -%}
+{% endmacro -%}
+# Table of Contents
+
+{% for section in document['sections'] -%}
+* [{{ section['title'] }}](#{{ section['title'] | replace(' ', '-')| replace('--', '-') }})
+{% if section['sections'] is defined -%}
+{{ toc_subs('  ', section['sections']) -}}
+{% endif -%}
+{% endfor %}

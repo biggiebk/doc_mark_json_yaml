@@ -31,8 +31,10 @@ class DocMarkJson():
 				with open(F"{directory}/{filename}", 'r', encoding='utf-8') as file:
 					file_data = file.read()
 				file_json = json.loads(file_data) # Readin the file
+				if not 'template' in file_json['document']:
+					file_json['document']['template'] = 'default.md.j2'
 				env = Environment( loader=PackageLoader("doc_mark_json"), autoescape=select_autoescape())
-				template = env.get_template("default.jinja")
+				template = env.get_template(file_json['document']['template'])
 				with open(F"{self.parameters['out']}/{os.path.splitext(filename)[0]}.md", "w",
 				encoding='utf-8')as markdown_file:
 					markdown_file.write(template.render(document=file_json['document']))

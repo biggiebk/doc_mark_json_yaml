@@ -1,0 +1,3 @@
+{% from 'macros/display_section.md.j2' import display_section -%}
+{% include 'common/table_of_contents.md.j2' %}
+{{ display_section('##', document['sections']) -}}

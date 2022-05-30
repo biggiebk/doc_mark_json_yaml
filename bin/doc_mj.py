@@ -15,19 +15,18 @@ parser = argparse.ArgumentParser(description ='Document generation tool to creat
 # Add Arguments
 parser.add_argument('input', metavar='Input', help ='File or directory to process')
 parser.add_argument('out', metavar='OutputDir', action='store', help='Directory for output')
-parser.add_argument('owner', metavar='Owner', action='store', help='Directory for output')
-parser.add_argument('repo', metavar='Repo', action='store', help='Directory for output')
+parser.add_argument('owner', metavar='Owner', action='store', help='Repository owner')
+parser.add_argument('repo', metavar='Repo', action='store', help='Name of the repository')
+parser.add_argument('msg', metavar='Message', action='store', help='Reason for updates')
 
 # Parse the arguments
 args = parser.parse_args()
-
-print(args.owner)
 
 # Let's initiate Doctor Mark JSON and Git Wiki
 doc_mj = DocMarkJson()
 wiki = GitWiki(args.owner, args.repo, args.out)
 args.out = args.out + f"/{args.repo}.wiki"
-print(args.out)
+
 # Clone the wiki
 wiki.clone()
 
@@ -45,7 +44,7 @@ if errors:
 doc_mj.build()
 
 # commit wiki
-wiki.commit('First wiki push test')
+wiki.commit(args.msg)
 
 # push wiki
 wiki.push()

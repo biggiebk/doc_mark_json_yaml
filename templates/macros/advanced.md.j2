@@ -1,0 +1,20 @@
+{% macro code(adv_obj) -%}
+```{{ adv_obj['lang'] }}
+{% for line in adv_obj['lines'] -%}
+    {{'    ' + line }}
+{% endfor -%}
+```
+
+{% endmacro -%}
+{% macro ul(adv_obj, indent) -%}
+{% for line in adv_obj['lines'] -%}
+{{indent}}* {{line }}
+{% endfor %}
+{% endmacro -%}
+{% macro advanced(adv_obj) -%}
+{% if adv_obj['type'] == 'code' -%}
+{{ code(adv_obj) -}}
+{% elif  adv_obj['type'] == 'ul' -%}
+{{ ul(adv_obj, '') -}}
+{% endif -%}
+{% endmacro -%}
