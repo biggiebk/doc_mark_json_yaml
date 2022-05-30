@@ -3,42 +3,58 @@
 		"sections": [
 			{
 				"title": "I am the title of section 1",
-				"pre-txts": [
+				"pre": [
 					"This is the pre-text of section 1"
 				],
 				"sections": [
 					{
 						"title": "I am the title of section 1.1",
-						"pre-txts": [
+						"pre": [
 							"This is the pre-text of section 1.1"
 						]
 					}
 				],
-				"post-txts": [
+				"post": [
 					"This is the post-text of section 1"
 				]
 			},
 			{
 				"title": "I am the title of section 2",
-				"pre-txts": [
+				"pre": [
 					"This is the pre-text of section 2"
 				],
 				"sections": [
 					{
 						"title": "I am the title of section 2.1",
-						"pre-txts": [
+						"pre": [
 							"This is the pre-text of section 2.1",
+							{
+								"type": "ul",
+								"lines": [
+									"This a line",
+									"Yet another line"
+								]
+							},
 							"Second line of pre-text section 2.1"
 						]
 					},
 					{
 						"title": "I am the title of section 2.2",
-						"pre-txts": [
-							"This is the pre-text of section 2.2"
+						"pre": [
+							"This is the pre-text of section 2.2",
+							{
+								"type": "code",
+								"lang": "json",
+								"lines": [
+									"{",
+									"  \"key\": \"value\"",
+									"}"
+								]
+							}
 						]
 					}
 				],
-				"post-txts": [
+				"post": [
 					"This is the post-text of section 2"
 				]
 			}
