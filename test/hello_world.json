@@ -1,1 +1,63 @@
-{"document": {"sections": [{"post": ["This is the post-text of section 1"], "pre": ["This is the pre-text of section 1"], "sections": [{"pre": ["This is the pre-text of section 1.1"], "title": "I am the title of section 1.1"}], "title": "I am the title of section 1"}, {"post": ["This is the post-text of section 2"], "pre": ["This is the pre-text of section 2"], "sections": [{"pre": ["This is the pre-text of section 2.1", {"lines": ["This a line", "Yet another line"], "type": "ul"}, "Second line of pre-text section 2.1"], "title": "I am the title of section 2.1"}, {"pre": ["This is the pre-text of section 2.2", {"lang": "json", "lines": ["{", "  \"key\": \"value\"", "}"], "type": "code"}], "title": "I am the title of section 2.2"}], "title": "I am the title of section 2"}]}}
+{
+	"document":	{
+		"sections": [
+			{
+				"title": "I am the title of section 1",
+				"pre": [
+					"This is the pre-text of section 1"
+				],
+				"sections": [
+					{
+						"title": "I am the title of section 1.1",
+						"pre": [
+							"This is the pre-text of section 1.1"
+						]
+					}
+				],
+				"post": [
+					"This is the post-text of section 1"
+				]
+			},
+			{
+				"title": "I am the title of section 2",
+				"pre": [
+					"This is the pre-text of section 2"
+				],
+				"sections": [
+					{
+						"title": "I am the title of section 2.1",
+						"pre": [
+							"This is the pre-text of section 2.1",
+							{
+								"type": "ul",
+								"lines": [
+									"This a line",
+									"Yet another line"
+								]
+							},
+							"Second line of pre-text section 2.1"
+						]
+					},
+					{
+						"title": "I am the title of section 2.2",
+						"pre": [
+							"This is the pre-text of section 2.2",
+							{
+								"type": "code",
+								"lang": "json",
+								"lines": [
+									"{",
+									"  \"key\": \"value\"",
+									"}"
+								]
+							}
+						]
+					}
+				],
+				"post": [
+					"This is the post-text of section 2"
+				]
+			}
+		]
+	}
+}

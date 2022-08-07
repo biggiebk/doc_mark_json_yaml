@@ -119,4 +119,4 @@ class DocMarkJson():
 
 	def __load_yaml(self, data: str) -> dict:
 		""" Loads YAML and returns dict """
-		return yaml.loads(data) # Can we read the file
+		return yaml.safe_load(data) # Can we read the file
