@@ -24,7 +24,8 @@ class GitWiki():
 			Clones the wiki of the given repo
 		"""
 		self.__switch_to(self.local_dir)
-		subprocess.run(["git", "clone", f"git@github.com:{self.owner}/{self.repo}.wiki.git"])
+		print("git", "clone", f"git@github.com:{self.owner}/{self.repo}.wiki.git")
+		subprocess.run(["git", "clone", F"git@github.com:{self.owner}/{self.repo}.wiki.git"])
 		self.__return_to_current()
 
 	@beartype
