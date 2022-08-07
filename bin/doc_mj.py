@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3.10
 """
 	Script used to generate Markdown documenation for JSON files.
 """
@@ -25,7 +25,7 @@ args = parser.parse_args()
 # Let's initiate Doctor Mark JSON and Git Wiki
 doc_mj = DocMarkJson()
 wiki = GitWiki(args.owner, args.repo, args.out)
-args.out = args.out + f"/{args.repo}.wiki"
+args.out = f"{args.out}/{args.repo}.wiki"
 
 # Clone the wiki
 wiki.clone()
