@@ -3,7 +3,7 @@
 	Script used to generate Markdown documenation for JSON files.
 """
 import sys
-sys.path.append('../doc_mark_json')
+sys.path.append('../doc_mark_json_yaml')
 import argparse
 from doc_mark_json import DocMarkJson
 
