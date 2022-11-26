@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.10
+#!/usr/bin/env python3
 """
 	Script to convert files between yaml and json formats
 """
