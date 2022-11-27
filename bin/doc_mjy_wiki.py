@@ -5,7 +5,7 @@
 import sys
 sys.path.append('../doc_mark_json')
 import argparse
-from doc_mark_json import DocMarkJson
+from doc_mark_json_yaml import DocMarkJsonYaml
 from git_wiki import GitWiki
 
 # Lets setup the argument parser
@@ -23,7 +23,7 @@ parser.add_argument('msg', metavar='Message', action='store', help='Reason for u
 args = parser.parse_args()
 
 # Let's initiate Doctor Mark JSON and Git Wiki
-doc_mj = DocMarkJson()
+doc_mj = DocMarkJsonYaml()
 wiki = GitWiki(args.owner, args.repo, args.out)
 args.out = f"{args.out}/{args.repo}.wiki"
 

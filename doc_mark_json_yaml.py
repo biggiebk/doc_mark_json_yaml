@@ -10,7 +10,7 @@ from typing import Union
 from beartype import beartype
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-class DocMarkJson():
+class DocMarkJsonYaml():
 	"""
 		Description: Main class for reading in and parsing JSON files
 	"""
@@ -38,7 +38,7 @@ class DocMarkJson():
 					file_dict = self.__load_yaml(file_data)
 				if not 'template' in file_dict['document']:
 					file_dict['document']['template'] = 'default.md.j2'
-				env = Environment( loader=PackageLoader("doc_mark_json"), autoescape=select_autoescape())
+				env = Environment( loader=PackageLoader("doc_mark_json_yaml"), autoescape=select_autoescape())
 				template = env.get_template(file_dict['document']['template'])
 				with open(F"{self.parameters['out']}/{os.path.splitext(filename)[0]}.md", "w",
 				encoding='utf-8')as markdown_file:

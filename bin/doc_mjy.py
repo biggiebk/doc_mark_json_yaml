@@ -5,7 +5,7 @@
 import sys
 sys.path.append('../doc_mark_json_yaml')
 import argparse
-from doc_mark_json import DocMarkJson
+from doc_mark_json_yaml import DocMarkJsonYaml
 
 # Lets setup the argument parser
 parser = argparse.ArgumentParser(description ='Document generation tool to create '
@@ -19,7 +19,7 @@ parser.add_argument('out', metavar='OutputDir', action='store', help='Directory 
 args = parser.parse_args()
 
 # Let's initiate Doctor Mark JSON and Git Wiki
-doc_mj = DocMarkJson()
+doc_mj = DocMarkJsonYaml()
 
 # Clone the wiki
 
